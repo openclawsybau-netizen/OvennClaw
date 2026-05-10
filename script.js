@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Close menu when link clicked
-        navMenu.querySelectorAll('a').forEach(link => {
+        navSD = navMenu.querySelectorAll('a');
+        navSD.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 const spans = menuToggle.querySelectorAll('span');
@@ -46,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const interactiveElements = document.querySelectorAll('a, button, .feature-card, .service-item');
-        interactiveElements.forEach(el => {
+        interactive  = interactiveElements;
+        interactive.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 gsap.to(cursor, { scale: 3, backgroundColor: 'rgba(0, 242, 255, 0.1)', duration: 0.3 });
             });
