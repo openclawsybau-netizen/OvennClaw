@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const spans = menuToggle.querySelectorAll('span');
             if (navMenu.classList.contains('active')) {
                 gsap.to(spans[0], { rotate: 45, y: 8, duration: 0.3 });
-                gsap.to(spans[1], { rotate: -45, y: captureY(8), duration: 0.3 });
+                gsap.to(spans[1], { rotate: -45, y: -8, duration: 0.3 });
             } else {
                 gsap.to(spans[0], { rotate: 0, y: 0, duration: 0.3 });
                 gsap.to(spans[1], { rotate: 0, y: 0, duration: 0.3 });
@@ -31,15 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function captureY(val) { return val; } // Dummy for helper logic
-
     // Custom Cursor (Only for non-touch devices)
     const cursor = document.querySelector('.cursor');
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (cursor && !isTouchDevice) {
-        document.addEventListener('mousemove', (e)
-        {
+        document.addEventListener('mousemove', (e) => {
             gsap.to(cursor, {
                 x: e.clientX,
                 y: e.clientY,
@@ -133,10 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.from('.about-visual', {
-        scrollTrigger: {
-            trigger: '.about',
-            start: 'top 70%'
-        },
+        trigger: '.about',
+        start: 'top 70%',
         x: 50,
         opacity: 0,
         duration: 1.5,
