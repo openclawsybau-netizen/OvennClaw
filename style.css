@@ -1,0 +1,226 @@
+:root {
+    --bg-color: #0a0a0c;
+    --text-color: #ffffff;
+    --accent-color: #00f2ff;
+    --secondary-color: #7000ff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.background-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0bl 100%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent overlap);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+main {
+    position: relative;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 10%;
+    position: relative;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+}
+
+.glitch-text {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent-color);
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--text-color);
+    border-radius: 20px;
+}
+
+.scroll-indicator::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    animation: scrollAnim 2s infinite;
+}
+
+@keyframes scrollAnim {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 20px); }
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.feature-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.interactive-zone {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.orbit-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-center {
+    width: 60px;
+    height: 60px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 40px var(--secondary-color);
+    z-index: 5;
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.planet {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.moon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    top: -10px;
+    left: 40px;
+}
+
+.zone-title {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+footer {
+    padding: 3rem;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
