@@ -1,4 +1,4 @@
-// Custom cursor
+// ── Custom Cursor ──
 const dot = document.querySelector('.cursor-dot');
 const ring = document.querySelector('.cursor-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -18,7 +18,6 @@ function animateRing() {
 }
 animateRing();
 
-// Hover expansion on interactive elements
 document.querySelectorAll('a, button, .work-card, .service-item').forEach(el => {
   el.addEventListener('mouseenter', () => {
     ring.style.width = '60px';
@@ -32,7 +31,7 @@ document.querySelectorAll('a, button, .work-card, .service-item').forEach(el => 
   });
 });
 
-// Particles
+// ── Particles ──
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -45,9 +44,7 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 class Particle {
-  constructor() {
-    this.reset();
-  }
+  constructor() { this.reset(); }
   reset() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
@@ -70,9 +67,7 @@ class Particle {
   }
 }
 
-for (let i = 0; i < 80; i++) {
-  particles.push(new Particle());
-}
+for (let i = 0; i < 80; i++) particles.push(new Particle());
 
 function drawLines() {
   for (let i = 0; i < particles.length; i++) {
@@ -100,20 +95,20 @@ function animateParticles() {
 }
 animateParticles();
 
-// Navbar scroll
+// ── Navbar scroll ──
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  navbar.classList.toggle('glass', window.scrollY > 50);
 });
 
-// Mobile nav
+// ── Mobile nav ──
 const toggle = document.getElementById('navToggle');
 const menu = document.getElementById('mobileMenu');
 if (toggle && menu) {
   toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
+    menu.classList.toggle('open');
     const spans = toggle.querySelectorAll('span');
-    if (menu.classList.contains('active')) {
+    if (menu.classList.contains('open')) {
       spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
@@ -125,46 +120,41 @@ if (toggle && menu) {
   });
 }
 
-// Intersection Observer for scroll reveals
-const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+// ── Intersection Observer ──
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, delay);
+      setTimeout(() => entry.target.classList.add('show'), delay);
     }
   });
-}, observerOptions);
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
 // Observe work cards
 document.querySelectorAll('.work-card').forEach((card, i) => {
   card.dataset.delay = i * 100;
-  observer.observe(card);
+  obs.observe(card);
 });
 
-// Observe section titles
-document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+// Observe section titles (reveal class)
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Observe about lead
-document.querySelectorAll('.about-lead, .about-text p, .contact-sub, .contact-email').forEach(el => observer.observe(el));
-
-// Observe stats
+// Observe about elements
+document.querySelectorAll('.about-lead').forEach(el => obs.observe(el));
+document.querySelectorAll('.about-text p').forEach(el => obs.observe(el));
+document.querySelectorAll('.contact-sub').forEach(el => obs.observe(el));
+document.querySelectorAll('.contact-email').forEach(el => obs.observe(el));
 document.querySelectorAll('.stat').forEach((stat, i) => {
   stat.dataset.delay = i * 100;
-  observer.observe(stat);
+  obs.observe(stat);
 });
-
-// Observe service items
 document.querySelectorAll('.service-item').forEach((item, i) => {
   item.dataset.delay = i * 80;
-  observer.observe(item);
+  obs.observe(item);
 });
 
-// Counter animation
-const counterObserver = new IntersectionObserver((entries) => {
+// ── Counter animation ──
+const counterObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const el = entry.target;
@@ -180,18 +170,9 @@ const counterObserver = new IntersectionObserver((entries) => {
           el.textContent = Math.floor(current);
         }
       }, 25);
-      counterObserver.unobserve(el);
+      counterObs.unobserve(el);
     }
   });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
-
-// Parallax blobs on scroll
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  document.querySelectorAll('.blob').forEach((blob, i) => {
-    const speed = (i + 1) * 0.03;
-    blob.style.transform = `translateY(${scrollY * speed}px)`;
-  });
-});
+document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
