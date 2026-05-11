@@ -9,29 +9,19 @@
 </head>
 <body>
 
-<canvas id="particles"></canvas>
-
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
-<!-- Loader -->
-<div class="loader">
-  <div class="loader-bar"></div>
-  <div class="loader-text">PRISM</div>
-</div>
-
 <!-- Nav -->
-<nav class="navbar">
+<nav class="navbar" id="navbar">
   <div class="nav-logo">PRISM</div>
-  <div class="nav-links">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-toggle" id="navToggle">
-    <span></span><span></span><span></span>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- Mobile Menu -->
@@ -60,38 +50,18 @@
       <a href="#contact" class="cta-secondary">Get in Touch</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
 </section>
 
 <!-- Marquee -->
 <div class="marquee-section">
   <div class="marquee">
     <div class="marquee-track">
-      <span>Strategy</span><span>•</span>
-      <span>Branding</span><span>•</span>
-      <span>Design</span><span>•</span>
-      <span>Development</span><span>•</span>
-      <span>Motion</span><span>•</span>
-      <span>Strategy</span><span>•</span>
-      <span>Branding</span><span>•</span>
-      <span>Design</span><span>•</span>
-      <span>Development</span><span>•</span>
-      <span>Motion</span><span>•</span>
+      <span>Strategy</span><span>•</span><span>Branding</span><span>•</span><span>Design</span><span>•</span><span>Development</span><span>•</span><span>Motion</span><span>•</span>
+      <span>Strategy</span><span>•</span><span>Branding</span><span>•</span><span>Design</span><span>•</span><span>Development</span><span>•</span><span>Motion</span><span>•</span>
     </div>
     <div class="marquee-track">
-      <span>Strategy</span><span>•</span>
-      <span>Branding</span><span>•</span>
-      <span>Design</span><span>•</span>
-      <span>Development</span><span>•</span>
-      <span>Motion</span><span>•</span>
-      <span>Strategy</span><span>•</span>
-      <span>Branding</span><span>•</span>
-      <span>Design</span><span>•</span>
-      <span>Development</span><span>•</span>
-      <span>Motion</span><span>•</span>
+      <span>Strategy</span><span>•</span><span>Branding</span><span>•</span><span>Design</span><span>•</span><span>Development</span><span>•</span><span>Motion</span><span>•</span>
+      <span>Strategy</span><span>•</span><span>Branding</span><span>•</span><span>Design</span><span>•</span><span>Development</span><span>•</span><span>Motion</span><span>•</span>
     </div>
   </div>
 </div>
@@ -100,48 +70,47 @@
 <section class="work-section" id="work">
   <div class="section-header">
     <span class="section-number">01</span>
-    <h2 class="section-title reveal-text">Selected Work</h2>
+    <h2 class="section-title reveal">Selected Work</h2>
   </div>
-
   <div class="work-grid">
-    <div class="work-card large" data-tilt>
-      <div class="work-img" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+    <div class="work-card large">
+      <div class="work-img" style="background:linear-gradient(135deg,#667eea,#764ba2)"></div>
       <div class="work-info">
         <span class="work-category">Branding</span>
         <h3 class="work-title">Luminary Labs</h3>
-        <p>Complete brand identity for an AI research startup</p>
+        <p>Brand identity for an AI research startup</p>
       </div>
     </div>
-    <div class="work-card" data-tilt>
-      <div class="work-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+    <div class="work-card">
+      <div class="work-img" style="background:linear-gradient(135deg,#f093fb,#f5576c)"></div>
       <div class="work-info">
         <span class="work-category">Web Design</span>
         <h3 class="work-title">Velvet Interiors</h3>
-        <p>E-commerce experience for luxury furniture</p>
+        <p>Luxury furniture e-commerce</p>
       </div>
     </div>
-    <div class="work-card" data-tilt>
-      <div class="work-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+    <div class="work-card">
+      <div class="work-img" style="background:linear-gradient(135deg,#4facfe,#00f2fe)"></div>
       <div class="work-info">
         <span class="work-category">App Design</span>
         <h3 class="work-title">Pulse Fitness</h3>
         <p>Health tracking with social motivation</p>
       </div>
     </div>
-    <div class="work-card" data-tilt>
-      <div class="work-img" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);"></div>
+    <div class="work-card">
+      <div class="work-img" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)"></div>
       <div class="work-info">
         <span class="work-category">Motion</span>
         <h3 class="work-title">Horizon Festival</h3>
         <p>Visual identity and motion campaign</p>
       </div>
     </div>
-    <div class="work-card wide" data-tilt>
-      <div class="work-img" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);"></div>
+    <div class="work-card wide">
+      <div class="work-img" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)"></div>
       <div class="work-info">
         <span class="work-category">Development</span>
         <h3 class="work-title">Aurora Dashboard</h3>
-        <p>Real-time analytics platform with immersive data viz</p>
+        <p>Real-time analytics with immersive data viz</p>
       </div>
     </div>
   </div>
@@ -151,34 +120,20 @@
 <section class="about-section" id="about">
   <div class="section-header">
     <span class="section-number">02</span>
-    <h2 class="section-title reveal-text">Who We Are</h2>
+    <h2 class="section-title reveal">Who We Are</h2>
   </div>
   <div class="about-grid">
     <div class="about-text">
       <p class="about-lead">We're a collective of designers, developers, and strategists who believe that great design is invisible — it just works.</p>
       <p>Founded in 2019, PRISM has partnered with startups, Fortune 500 companies, and everything in between. We don't follow trends; we set them.</p>
       <div class="about-stats">
-        <div class="stat">
-          <span class="stat-num" data-count="147">0</span>
-          <span class="stat-label">Projects</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-count="42">0</span>
-          <span class="stat-label">Awards</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-count="98">0</span>
-          <span class="stat-label">Clients</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-count="12">0</span>
-          <span class="stat-label">Years</span>
-        </div>
+        <div class="stat"><span class="stat-num" data-count="147">0</span><span class="stat-label">Projects</span></div>
+        <div class="stat"><span class="stat-num" data-count="42">0</span><span class="stat-label">Awards</span></div>
+        <div class="stat"><span class="stat-num" data-count="98">0</span><span class="stat-label">Clients</span></div>
+        <div class="stat"><span class="stat-num" data-count="12">0</span><span class="stat-label">Years</span></div>
       </div>
     </div>
-    <div class="about-visual">
-      <div class="visual-orb"></div>
-    </div>
+    <div class="about-visual"><div class="orb"></div></div>
   </div>
 </section>
 
@@ -186,49 +141,14 @@
 <section class="services-section" id="services">
   <div class="section-header">
     <span class="section-number">03</span>
-    <h2 class="section-title reveal-text">What We Do</h2>
+    <h2 class="section-title reveal">What We Do</h2>
   </div>
   <div class="services-list">
-    <div class="service-item">
-      <span class="service-num">01</span>
-      <div class="service-content">
-        <h3>Brand Identity</h3>
-        <p>Logo, typography, color systems, and brand guidelines that tell your story.</p>
-      </div>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">02</span>
-      <div class="service-content">
-        <h3>Web & Product Design</h3>
-        <p>UI/UX design for web and mobile that converts and delights.</p>
-      </div>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">03</span>
-      <div class="service-content">
-        <h3>Development</h3>
-        <p>Full-stack development with cutting-edge tech and performance optimization.</p>
-      </div>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">04</span>
-      <div class="service-content">
-        <h3>Motion & Animation</h3>
-        <p>Motion design that brings interfaces to life and enhances storytelling.</p>
-      </div>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">05</span>
-      <div class="service-content">
-        <h3>Digital Strategy</h3>
-        <p>Data-driven strategy that aligns design with business goals.</p>
-      </div>
-      <div class="service-line"></div>
-    </div>
+    <div class="service-item"><span class="service-num">01</span><div class="service-content"><h3>Brand Identity</h3><p>Logo, typography, color systems, and brand guidelines that tell your story.</p></div><div class="service-line"></div></div>
+    <div class="service-item"><span class="service-num">02</span><div class="service-content"><h3>Web & Product Design</h3><p>UI/UX design for web and mobile that converts and delights.</p></div><div class="service-line"></div></div>
+    <div class="service-item"><span class="service-num">03</span><div class="service-content"><h3>Development</h3><p>Full-stack development with cutting-edge tech and performance optimization.</p></div><div class="service-line"></div></div>
+    <div class="service-item"><span class="service-num">04</span><div class="service-content"><h3>Motion & Animation</h3><p>Motion design that brings interfaces to life and enhances storytelling.</p></div><div class="service-line"></div></div>
+    <div class="service-item"><span class="service-num">05</span><div class="service-content"><h3>Digital Strategy</h3><p>Data-driven strategy that aligns design with business goals.</p></div><div class="service-line"></div></div>
   </div>
 </section>
 
@@ -237,7 +157,7 @@
   <div class="contact-bg-blob"></div>
   <div class="section-header">
     <span class="section-number">04</span>
-    <h2 class="section-title reveal-text">Let's Create</h2>
+    <h2 class="section-title reveal">Let's Create</h2>
   </div>
   <p class="contact-sub">Got a project in mind? We'd love to hear about it.</p>
   <a href="mailto:hello@prism.studio" class="contact-email">hello@prism.studio</a>
@@ -247,9 +167,7 @@
     <a href="#" class="social-link">Dribbble</a>
     <a href="#" class="social-link">LinkedIn</a>
   </div>
-  <footer class="footer">
-    <p>© 2025 PRISM Studio. All rights reserved.</p>
-  </footer>
+  <footer class="footer"><p>© 2025 PRISM Studio. All rights reserved.</p></footer>
 </section>
 
 <script src="script.js"></script>
