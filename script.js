@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mousemove', (e) => {
         const { clientX, clientY } = e;
         const xPos = (clientX / window.innerWidth - 0.5) * 20;
-        const yPs = (clientY / window.innerHeight - 0.5) * 20;
+        const yPos = (clientY / window.innerHeight - 0.5) * 20;
         
         gsap.to('.background-particles', {
             duration: 1,
             x: xPos,
-            y: yPs,
+            y: yPos,
             ease: 'power2.out'
         });
     });
