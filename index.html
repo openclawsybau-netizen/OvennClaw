@@ -9,26 +9,8 @@
 </head>
 <body>
 
-<!-- Login Screen -->
-<div class="auth-screen" id="login-screen">
-  <div class="auth-card">
-    <div class="brand">
-      <div class="brand-badge">A</div>
-      <div class="brand-text"><h5>Ambi</h5><p>AI-Powered Internal Platform</p></div>
-    </div>
-    <h1>Welcome back</h1>
-    <p>Login to use chat, RAG, and admin tools.</p>
-    <div class="form-stack">
-      <div class="field"><label>Username</label><input id="login-username" type="text" autocomplete="username" placeholder="Enter username"></div>
-      <div class="field"><label>Password</label><input id="login-password" type="password" autocomplete="current-password" placeholder="Enter password"></div>
-      <button class="btn-primary" onclick="login()">Login</button>
-      <div id="login-status" class="mini-status">Enter your username and password.</div>
-    </div>
-  </div>
-</div>
-
-<!-- Main App -->
-<div class="app" id="app" style="display:none;">
+<!-- Main App (Login bypassed) -->
+<div class="app" id="app">
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="brand">

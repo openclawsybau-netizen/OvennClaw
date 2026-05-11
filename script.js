@@ -1,8 +1,7 @@
-// ── State ──
-let currentUser = null;
-let isRagMode = true;
-let isAdmin = false;
-let currentChatId = null;
+// ── Bypassed Login ──
+currentUser = { username: 'guest', is_admin: true, is_active: true, token: 'bypassed' };
+isAdmin = true;
+showApp();
 
 // ── API Helper ──
 async function apiFetch(url, options = {}) {
@@ -11,7 +10,6 @@ async function apiFetch(url, options = {}) {
     headers: {
       'Content-Type': 'application/json',
       ...(options.headers || {}),
-      ...(currentUser ? { Authorization: `Bearer ${currentUser.token}` } : {}),
     },
     credentials: 'include',
   });
@@ -19,43 +17,10 @@ async function apiFetch(url, options = {}) {
   return resp;
 }
 
-// ── Auth ──
-async function login() {
-  const username = document.getElementById('login-username').value.trim();
-  const password = document.getElementById('login-password').value;
-  const status = document.getElementById('login-status');
-
-  if (!username || !password) {
-    status.textContent = 'Please enter both username and password.';
-    return;
-  }
-
-  try {
-    const resp = await apiFetch('/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-    });
-    const data = await resp.json();
-    currentUser = data;
-    isAdmin = data.is_admin;
-    status.textContent = 'Login successful!';
-    showApp();
-  } catch (err) {
-    status.textContent = `Login failed: ${err.message}`;
-  }
-}
-
-function showApp() {
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
-  loadUserData();
-}
-
 async function logout() {
   try { await fetch('/auth/logout', { method: 'POST', credentials: 'include' }); } catch {}
   currentUser = null;
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('app').style.display = 'none';
+  location.reload();
 }
 
 async function loadUserData() {
