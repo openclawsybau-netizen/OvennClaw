@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Netflix</title>
-<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar">
   <div class="nav-left">
     <h1 class="logo">NETFLIX</h1>
@@ -17,39 +16,35 @@
       <li><a href="#" class="active">Home</a></li>
       <li><a href="#">TV Shows</a></li>
       <li><a href="#">Movies</a></li>
-      <li><a href="#">New & Popular</a></li>
+      <li><a href="#">New &amp; Popular</a></li>
       <li><a href="#">My List</a></li>
     </ul>
   </div>
   <div class="nav-right">
-    <button class="search-btn">🔍</button>
+    <button class="search-btn">Search</button>
     <div class="avatar"></div>
   </div>
 </nav>
 
-<!-- Hero -->
 <header class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
   <div class="hero-content">
-    <span class="hero-badge">N Series</span>
+    <span class="hero-badge">#1 in TV Today</span>
     <h1 class="hero-title">Stranger Things</h1>
     <p class="hero-desc">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.</p>
     <div class="hero-buttons">
       <button class="btn-play">▶ Play</button>
-      <button class="btn-info">ℹ More Info</button>
+      <button class="btn-info">More Info</button>
     </div>
   </div>
 </header>
 
-<!-- Rows -->
 <div class="content">
 
   <section class="row">
     <h2 class="row-title">Trending Now</h2>
     <div class="row-container">
       <div class="row-slider" id="slider1"></div>
-      <button class="slider-btn left">‹</button>
-      <button class="slider-btn right">›</button>
     </div>
   </section>
 
@@ -57,8 +52,6 @@
     <h2 class="row-title">Popular on Netflix</h2>
     <div class="row-container">
       <div class="row-slider" id="slider2"></div>
-      <button class="slider-btn left">‹</button>
-      <button class="slider-btn right">›</button>
     </div>
   </section>
 
@@ -66,8 +59,6 @@
     <h2 class="row-title">New Releases</h2>
     <div class="row-container">
       <div class="row-slider" id="slider3"></div>
-      <button class="slider-btn left">‹</button>
-      <button class="slider-btn right">›</button>
     </div>
   </section>
 
@@ -75,65 +66,60 @@
     <h2 class="row-title">Action Thrillers</h2>
     <div class="row-container">
       <div class="row-slider" id="slider4"></div>
-      <button class="slider-btn left">‹</button>
-      <button class="slider-btn right">›</button>
     </div>
   </section>
 
 </div>
 
 <script>
-const titles = [
+const shows = [
   "Wednesday","Squid Game","Money Heist","The Witcher","Dark",
   "Ozark","Peaky Blinders","Narcos","Cobra Kai","Lupin",
-  "The Crown","Bridgerton","Shadow & Bone","Alice in Borderland",
+  "The Crown","Bridgerton","Shadow and Bone","Alice in Borderland",
   "All of Us Are Dead","You","Vikings","Arcane","Manifest",
   "Outer Banks","Euphoria","Mindhunter","Black Mirror","Severance",
   "The Queen's Gambit","Hacks","The Night Agent","Dahmer",
-  "Ginny & Georgia","Fool Me Once","Clickbait","Behind Her Eyes",
+  "Ginny and Georgia","Fool Me Once","Clickbait","Behind Her Eyes",
   "Inventing Anna","Rebel Ridge","Leave the World Behind","The Mother",
   "Heart of Stone","Rebel Ridge","The Union","Road House"
 ];
 
-const colors = [
-  "#e50914","#b20710","#c62828","#1a1a2e","#16213e",
-  "#0f3460","#533483","#2b2d42","#8d99ae","#ef233c",
-  "#d90429","#023047","#219ebc","#0077b6","#0096c7",
-  "#48cae4","#90e0ef","#00b4d8","#0077b6","#023e8a",
-  "#03045e","#3a0ca3","#7209b7","#b5179e","#f72585",
-  "#4cc9f0","#7209b7","#3a0ca3","#f72585","#ff6b6b",
-  "#ee5a24","#0652DD","#1289A7","#3E92CC","#D81159"
+const gradients = [
+  "linear-gradient(135deg, #e50914, #b20710)",
+  "linear-gradient(135deg, #2d1b69, #1a1a2e)",
+  "linear-gradient(135deg, #16213e, #0f3460)",
+  "linear-gradient(135deg, #533483, #2b2d42)",
+  "linear-gradient(135deg, #ef233c, #d90429)",
+  "linear-gradient(135deg, #023047, #219ebc)",
+  "linear-gradient(135deg, #0077b6, #48cae4)",
+  "linear-gradient(135deg, #00b4d8, #90e0ef)",
+  "linear-gradient(135deg, #7209b7, #b5179e)",
+  "linear-gradient(135deg, #f72585, #4cc9f0)",
+  "linear-gradient(135deg, #ff6b6b, #ee5a24)",
+  "linear-gradient(135deg, #0652DD, #1289A7)",
 ];
 
-function createCards(containerId, startIdx, count) {
+function createCards(containerId, start, count) {
   const slider = document.getElementById(containerId);
   for (let i = 0; i < count; i++) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    const idx = (startIdx + i) % titles.length;
+    const card = document.createElement("div");
+    card.className = "card";
+    const idx = (start + i) % shows.length;
+    const grad = gradients[(start + i) % gradients.length];
     card.innerHTML = `
-      <div class="card-poster" style="background: linear-gradient(135deg, ${colors[idx % colors.length]}, ${colors[(idx + 3) % colors.length]})">
-        <span class="card-title">${titles[idx]}</span>
-        <span class="card-number">#${idx + 1}</span>
+      <div class="card-inner" style="background:${grad}">
+        <span class="card-num">#${idx + 1}</span>
+        <span class="card-name">${shows[idx]}</span>
       </div>
     `;
     slider.appendChild(card);
   }
 }
 
-createCards('slider1', 0, 12);
-createCards('slider2', 10, 12);
-createCards('slider3', 20, 12);
-createCards('slider4', 30, 12);
-
-// Slider scroll
-document.querySelectorAll('.row-container').forEach(container => {
-  const slider = container.querySelector('.row-slider');
-  const left = container.querySelector('.slider-btn.left');
-  const right = container.querySelector('.slider-btn.right');
-  if(left) left.addEventListener('click', () => { slider.scrollBy({left: -340, behavior: 'smooth'}); });
-  if(right) right.addEventListener('click', () => { slider.scrollBy({left: 340, behavior: 'smooth'}); });
-});
+createCards("slider1", 0, 10);
+createCards("slider2", 10, 10);
+createCards("slider3", 20, 10);
+createCards("slider4", 30, 10);
 </script>
 
 </body>
