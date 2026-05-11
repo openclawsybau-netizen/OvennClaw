@@ -1,71 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titan Warehouse & Logistics | Secure Industrial Storage</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">TITAN <span class="accent">LOGISTICS</span></div>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1 class="animate-fade-in">Secure. Scalable. Strategic.</h1>
-            <p class="animate-fade-in-delay">Premium warehouse storage and distribution solutions for your enterprise needs.</p>
-            <a href="#contact" class="btn animate-fade-in-delay">Get a Quote</a>
-        </div>
-    </header>
 
-    <section id="services" class="container">
-        <h2 class="animate-fade-in">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card animate-fade-in">
-                <h3>Climate Controlled</h3>
-                <p>Precision temperature and humidity regulation for sensitive cargo.</p>
-            </div>
-            <div class="service-card animate-fade-in-delay">
-                <h3>24/7 Security</h3>
-                <p>Advanced surveillance, biometric access, and round-the-clock monitoring.</p>
-            </div>
-            <div class="service-card animate-fade-in">
-                <h3>Bulk Storage</h3>
-                <p>High-capacity racking systems for palletized and oversized goods.</p>
-            </div>
-            <div class="service-card animate-fade-in-delay">
-                <h3>Smart Logistics</h3>
-                <p>Real-time inventory tracking and seamless distribution management.</p>
-            <div class="service-card animate-fade-in">
-                <h3>Quick Turnaround</h3>
-                <p>Optimized loading and unloading for rapid supply chain movement.</p>
-            </div>
-        </div>
-    </section>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-left">
+    <h1 class="logo">NETFLIX</h1>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">TV Shows</a></li>
+      <li><a href="#">Movies</a></li>
+      <li><a href="#">New & Popular</a></li>
+      <li><a href="#">My List</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="search-btn">🔍</button>
+    <div class="avatar"></div>
+  </div>
+</nav>
 
-    <section id="about" class="bg-light">
-        <div class="container">
-            <h2 class="animate-fade-in">World-Class Infrastructure</h2>
-            <p>Located at the heart of the industrial corridor, Titan Warehouse & Logistics provides the backbone for your supply chain. Our facility is designed for rapid turnaround and maximum safety.</p>
-        </div>
-    </section>
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-badge">N Series</span>
+    <h1 class="hero-title">Stranger Things</h1>
+    <p class="hero-desc">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.</p>
+    <div class="hero-buttons">
+      <button class="btn-play">▶ Play</button>
+      <button class="btn-info">ℹ More Info</button>
+    </div>
+  </div>
+</header>
 
-    <section id="contact" class="container">
-        <h2 class="animate-fade-in">Contact Our Team</h2>
-        <div class="contact-info">
-            <p><strong>Address:</strong> 123 Industrial Way, Logistics Hub, CA 90210</p>
-            <p><strong>Phone:</strong> (555) 012-3456</p>
-            <p><strong>Email:</strong> operations@titanlogistics.example</p>
-        </div>
-    </section>
+<!-- Rows -->
+<div class="content">
 
-    <footer>
-        <p>&copy; 2026 Titan Warehouse & Logistics. All rights reserved.</p>
-    </footer>
+  <section class="row">
+    <h2 class="row-title">Trending Now</h2>
+    <div class="row-container">
+      <div class="row-slider" id="slider1"></div>
+      <button class="slider-btn left">‹</button>
+      <button class="slider-btn right">›</button>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2 class="row-title">Popular on Netflix</h2>
+    <div class="row-container">
+      <div class="row-slider" id="slider2"></div>
+      <button class="slider-btn left">‹</button>
+      <button class="slider-btn right">›</button>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2 class="row-title">New Releases</h2>
+    <div class="row-container">
+      <div class="row-slider" id="slider3"></div>
+      <button class="slider-btn left">‹</button>
+      <button class="slider-btn right">›</button>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2 class="row-title">Action Thrillers</h2>
+    <div class="row-container">
+      <div class="row-slider" id="slider4"></div>
+      <button class="slider-btn left">‹</button>
+      <button class="slider-btn right">›</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const titles = [
+  "Wednesday","Squid Game","Money Heist","The Witcher","Dark",
+  "Ozark","Peaky Blinders","Narcos","Cobra Kai","Lupin",
+  "The Crown","Bridgerton","Shadow & Bone","Alice in Borderland",
+  "All of Us Are Dead","You","Vikings","Arcane","Manifest",
+  "Outer Banks","Euphoria","Mindhunter","Black Mirror","Severance",
+  "The Queen's Gambit","Hacks","The Night Agent","Dahmer",
+  "Ginny & Georgia","Fool Me Once","Clickbait","Behind Her Eyes",
+  "Inventing Anna","Rebel Ridge","Leave the World Behind","The Mother",
+  "Heart of Stone","Rebel Ridge","The Union","Road House"
+];
+
+const colors = [
+  "#e50914","#b20710","#c62828","#1a1a2e","#16213e",
+  "#0f3460","#533483","#2b2d42","#8d99ae","#ef233c",
+  "#d90429","#023047","#219ebc","#0077b6","#0096c7",
+  "#48cae4","#90e0ef","#00b4d8","#0077b6","#023e8a",
+  "#03045e","#3a0ca3","#7209b7","#b5179e","#f72585",
+  "#4cc9f0","#7209b7","#3a0ca3","#f72585","#ff6b6b",
+  "#ee5a24","#0652DD","#1289A7","#3E92CC","#D81159"
+];
+
+function createCards(containerId, startIdx, count) {
+  const slider = document.getElementById(containerId);
+  for (let i = 0; i < count; i++) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const idx = (startIdx + i) % titles.length;
+    card.innerHTML = `
+      <div class="card-poster" style="background: linear-gradient(135deg, ${colors[idx % colors.length]}, ${colors[(idx + 3) % colors.length]})">
+        <span class="card-title">${titles[idx]}</span>
+        <span class="card-number">#${idx + 1}</span>
+      </div>
+    `;
+    slider.appendChild(card);
+  }
+}
+
+createCards('slider1', 0, 12);
+createCards('slider2', 10, 12);
+createCards('slider3', 20, 12);
+createCards('slider4', 30, 12);
+
+// Slider scroll
+document.querySelectorAll('.row-container').forEach(container => {
+  const slider = container.querySelector('.row-slider');
+  const left = container.querySelector('.slider-btn.left');
+  const right = container.querySelector('.slider-btn.right');
+  if(left) left.addEventListener('click', () => { slider.scrollBy({left: -340, behavior: 'smooth'}); });
+  if(right) right.addEventListener('click', () => { slider.scrollBy({left: 340, behavior: 'smooth'}); });
+});
+</script>
+
 </body>
 </html>
